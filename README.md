@@ -1,1 +1,1 @@
-# CanSatCord-TelegramI2C
+# ESP32-Telegram-I2C
