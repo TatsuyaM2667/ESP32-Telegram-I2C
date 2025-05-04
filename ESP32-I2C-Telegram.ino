@@ -1,16 +1,3 @@
-/*配線、備忘録として
-TTGO LoRa32(Receive) ---> ESP32 WROVER-D(TelegramBot)
-
-              GPIO22 ---> GPIO19
-              GPIO21 ---> GPIO18
-              GPIO04 ---> GPIO21
-              GPIO15 ---> GPIO22
-              GND    ---> GND
-
-            (GPIO25) ---> (LED)
-      
-*/
-
 #include <Wire.h>
 #include <WiFi.h>
 #include <WiFiClientSecure.h>
