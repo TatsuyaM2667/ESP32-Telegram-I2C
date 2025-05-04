@@ -17,8 +17,8 @@ TTGO LoRa32(Receive) ---> ESP32 WROVER-D(TelegramBot)
 #include <UniversalTelegramBot.h>
 
 #define I2C_SLAVE_ADDR 8      //返信用i2Cアドレス
-#define WIFI_SSID "elecom-ee9273"
-#define WIFI_PASSWORD "45nx69uwed64"
+#define WIFI_SSID ""
+#define WIFI_PASSWORD ""
 #define BOT_TOKEN "7813137636:AAEKRKprt0E_RuUC0xtVC6qxbCc0RD3JP9c"
 #define LED_PIN 4
 #define CHAT_ID "-1002381703054"    // Chat IDの定義
@@ -32,13 +32,6 @@ bool newI2CData = false;
 String i2cData = "";
 
 void setup() {
-  pinMode(2,OUTPUT);
-  pinMode(4,OUTPUT);
-  pinMode(0,OUTPUT);
-  pinMode(16,OUTPUT);
-  pinMode(17,OUTPUT);
-  pinMode(26,OUTPUT);
-  piMode()
   Serial.begin(115200);
   Wire.begin(I2C_SLAVE_ADDR);
   Wire.setClock(50000);// I2Cクロック速度を50kHzに設定
@@ -138,97 +131,5 @@ void handleNewMessages(int numNewMessages) {
       welcome += "電波の状況やインターネットに接続しにくい場合はLoRa受信機のシリアルモニタから直接返信を入力することも可能です。\n";
       bot.sendMessage(chat_id, welcome, "Markdown");
     }
-    else if (text == "/ヤシマ作戦、開始")
-    {
-      bot.sendMessage(chat_id, "ヤシマ作戦開始を承認。LoRa超遠距離通信コマンド発動。第一次電源投入開始。");
-
-      digitalWrite(2,HIGH);
-      delay(300);
-      digitalWrite(0,HIGH);
-      delay(300);
-      digitalWrite(4,HIGH);
-      delay(300);
-      digitalWrite(16,HIGH);
-      delay(300);
-      digitalWrite(17,HIGH);
-      delay(300);
-      digitalWrite(26,HIGH);
-      delay(300);
-      digitalWrite(27,HIGH);
-      delay(300);
-      digitalWrite(32,HIGH);
-      delay(300);
-      digitalWrite(2,LOW);
-      delay(300);
-      digitalWrite(2,LOW);
-      delay(300);
-      digitalWrite(0,LOW);
-      delay(300);
-      digitalWrite(4,LOW);
-      delay(300);
-      digitalWrite(16,LOW);
-      delay(300);
-      digitalWrite(17,LOW);
-      delay(300);
-      digitalWrite(26,LOW);
-      delay(300);
-      digitalWrite(27,LOW);
-      delay(300);
-      digitalWrite(2,HIGH);
-      delay(300);
-      digitalWrite(0,HIGH);
-      delay(300);
-      digitalWrite(4,HIGH);
-      delay(300);
-      digitalWrite(16,HIGH);
-      delay(300);
-      digitalWrite(17,HIGH);
-      delay(300);
-      digitalWrite(26,HIGH);
-      delay(300);
-      digitalWrite(27,HIGH);
-      delay(300);
-      digitalWrite(2,LOW);
-      delay(300);
-      digitalWrite(2,LOW);
-      delay(300);
-      digitalWrite(0,LOW);
-      delay(300);
-      digitalWrite(4,LOW);
-      delay(300);
-      digitalWrite(16,LOW);
-      delay(300);
-      digitalWrite(2,HIGH);
-      delay(300);
-      digitalWrite(0,HIGH);
-      delay(300);
-      digitalWrite(4,HIGH);
-      delay(300);
-      digitalWrite(16,HIGH);
-      delay(300);
-      digitalWrite(2,LOW);
-      delay(300);
-
-      digitalWrite(0,LOW);
-      delay(300);
-      
-      digitalWrite(4,LOW);
-      delay(300);
-      digitalWrite(2,HIGH);
-      delay(300);
-      digitalWrite(0,HIGH);
-      delay(300);
-      digitalWrite(4,HIGH);
-      delay(300);
-      digitalWrite(0,LOW);
-      delay(300);
-      
-      digitalWrite(4,LOW);
-      delay(300);
-      digitalWrite(4,HIGH);
-
- // turn the LED on (HIGH is the voltage level)
-    }
-
   }
 }
