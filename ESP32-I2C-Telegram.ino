@@ -19,9 +19,9 @@ TTGO LoRa32(Receive) ---> ESP32 WROVER-D(TelegramBot)
 #define I2C_SLAVE_ADDR 8      //返信用i2Cアドレス
 #define WIFI_SSID ""
 #define WIFI_PASSWORD ""
-#define BOT_TOKEN "7813137636:AAEKRKprt0E_RuUC0xtVC6qxbCc0RD3JP9c"
+#define BOT_TOKEN ""
 #define LED_PIN 4
-#define CHAT_ID "-1002381703054"    // Chat IDの定義
+#define CHAT_ID ""    // Chat IDの定義
 
 const unsigned long BOT_MTBS = 1000;
 
