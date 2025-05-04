@@ -91,8 +91,8 @@ void handleNewMessages(int numNewMessages) {
     String text = bot.messages[i].text;
     Serial.println(text);
 
-    // 受信したTelegramメッセージをI2C経由で別のESP32に送信
-    Wire1.beginTransmission(0x55);//救助隊からの返信用i2Cアドレス
+    
+    Wire1.beginTransmission(0x55);
     for (size_t j = 0; j < text.length(); j++) {
       Wire1.write((uint8_t)text[j]);
     }
@@ -112,10 +112,6 @@ void handleNewMessages(int numNewMessages) {
       }
     } else if (text == "/start") {
       String welcome = "hello ";
-      welcome += "こちらは法政大学第二高等学校　物理部の缶サット用Telegram Botです。\n";
-      welcome += "温度,湿度,気圧,GPS座標,名前（チャットID),チャットメッセージ,ボタンの状態,RSSI(通信強度)の順で情報をお知らせします。\n";
-      welcome += "返信する場合は文頭に「/」をつけてください。\n";
-      welcome += "電波の状況やインターネットに接続しにくい場合はLoRa受信機のシリアルモニタから直接返信を入力することも可能です。\n";
       bot.sendMessage(chat_id, welcome, "Markdown");
     }
   }
